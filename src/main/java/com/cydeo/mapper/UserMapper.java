@@ -13,6 +13,7 @@ public class UserMapper {
     private final ModelMapper modelMapper;
 
     public UserMapper(ModelMapper modelMapper) {
+
         this.modelMapper = modelMapper;
     }
 
@@ -23,7 +24,7 @@ public class UserMapper {
 
 
     //convertToDto
-    public UserDTO convertToDto(User entity){
+    public UserDTO convertToDTO(User entity){
         return modelMapper.map(entity, UserDTO.class);
 
     }

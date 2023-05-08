@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RoleMapper {
 
-    //if you want to use any method from ModelMapper class imjection os needed
+    //if you want to use any method from ModelMapper class injection os needed
     private final ModelMapper modelMapper;
 
     public RoleMapper(ModelMapper modelMapper) {
