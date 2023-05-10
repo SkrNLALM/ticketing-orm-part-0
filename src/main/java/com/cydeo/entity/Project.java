@@ -23,7 +23,7 @@ public class Project extends BaseEntity{
 
     private String projectName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})    //I added cascade because I got an error, different from Githup cydeo
     @JoinColumn(name = "manager_id")
     private User assignedManager;
 

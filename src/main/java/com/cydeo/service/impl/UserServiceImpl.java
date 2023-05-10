@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
         //controller calling me and requesting all the roles
         //so .. I need to go to database and bring all the roles from there
 
-//        List<User> userList =userRepository.findAll(Sort.by("firstName"));
-//        return userList.stream().map(userMapper::convertToDTO).collect(Collectors.toList());  OR
-        return userRepository.findAll(Sort.by("firstName")).stream().map(userMapper::convertToDTO).collect(Collectors.toList());
+        List<User> userList =userRepository.findAll(Sort.by("firstName"));
+        return userList.stream().map(userMapper::convertToDTO).collect(Collectors.toList());
+     //   return userRepository.findAll(Sort.by("firstName")).stream().map(userMapper::convertToDTO).collect(Collectors.toList());
     }
 
     @Override
@@ -72,5 +72,11 @@ public class UserServiceImpl implements UserService {
      user.setIsDeleted(true);
      userRepository.save(user);
 
+    }
+
+    @Override
+    public List<UserDTO> listAllByRole(String role) {
+        List<User> users =userRepository.findAllByRoleDescriptionIgnoreCase(role);
+        return users.stream().map(userMapper::convertToDTO).collect(Collectors.toList());
     }
 }
